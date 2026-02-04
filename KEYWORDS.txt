@@ -1,0 +1,278 @@
+========================
+MOTS-CLÉS DU PSEUDO-CODE
+========================
+
+--- BLOC PRINCIPAL ---
+
+DEBUT
+    Marque le début du bloc principal du programme (équivalent à main()).
+    Les déclarations de variables doivent suivre immédiatement.
+    Syntaxe: DEBUT
+
+FIN
+    Marque la fin du bloc principal du programme.
+    Syntaxe: FIN
+
+--- TYPES DE DONNÉES ---
+
+INT
+    Déclare une variable entière (équivalent à int en C).
+    Syntaxe: INT nom
+    Exemple: INT age
+
+CHAR
+    Déclare une variable caractère (équivalent à char en C).
+    Syntaxe: CHAR nom
+    Exemple: CHAR lettre
+
+FLOAT
+    Déclare une variable réelle (équivalent à float en C).
+    Syntaxe: FLOAT nom
+    Exemple: FLOAT prix
+
+TABLE
+    Déclare un tableau typé.
+    Syntaxes:
+        TABLE TYPE nom[taille]
+        TYPE nom[taille] (compatibilité)
+    Exemples:
+        TABLE INT notes[10]
+        TABLE FLOAT valeurs[5]
+        TABLE CHAR mot[20]
+        INT tableau[5] (équivalent à TABLE INT tableau[5])
+
+--- FONCTIONS ---
+
+FONCTION
+    Déclare le début d'une fonction avec paramètres typés.
+    Syntaxe: FONCTION nom(TYPE1 param1, TYPE2 param2, ...)
+    Exemples:
+        FONCTION addition(INT a, INT b)
+        FONCTION conversion(FLOAT x, CHAR c)
+        FONCTION afficher(INT valeur, FLOAT precision)
+
+FINFONCTION
+    Marque la fin du corps d'une fonction.
+    Syntaxe: FINFONCTION
+
+RETOURNER
+    Retourne une valeur et termine l'exécution de la fonction courante.
+    Doit être utilisé uniquement à l'intérieur d'une fonction.
+    Syntaxe: RETOURNER expression
+    Exemple: RETOURNER x + y
+
+--- ENTRÉE / SORTIE ---
+
+ECRIRE
+    Affiche la valeur d'une expression ou une chaîne de caractères.
+    Syntaxes:
+        ECRIRE expression
+        ECRIRE "chaîne de caractères"
+    Exemples:
+        ECRIRE x
+        ECRIRE 42
+        ECRIRE 3.14
+        ECRIRE 'A'
+        ECRIRE "Résultat : "
+
+LIRE
+    Lit une valeur depuis l'entrée standard (scanf) et la stocke dans une variable.
+    Fonctionne avec les variables scalaires et les éléments de tableaux.
+    Syntaxes:
+        LIRE(variable)
+        LIRE(tableau[indice])
+    Exemples:
+        LIRE(age)
+        LIRE(tab[0])
+        LIRE(notes[i])
+
+--- STRUCTURES DE CONTRÔLE ---
+
+POUR
+    Boucle for avec variable de contrôle.
+    La variable et les bornes doivent être de type INT.
+    Syntaxe: POUR variable DE début A fin ... FINPOUR
+    Exemple:
+        POUR i DE 1 A 10
+            ECRIRE i
+        FINPOUR
+
+FINPOUR
+    Marque la fin d'une boucle POUR.
+
+TANTQUE
+    Boucle while (tant que condition vraie).
+    Syntaxe: TANTQUE condition ... FINTANTQUE
+    Exemple:
+        TANTQUE x < 10
+            x ~ x + 1
+        FINTANTQUE
+
+FINTANTQUE
+    Marque la fin d'une boucle TANTQUE.
+
+REPETER
+    Boucle do-while (exécute au moins une fois).
+    Syntaxe: REPETER ... TANTQUE condition
+    Exemple:
+        REPETER
+            ECRIRE "Menu"
+            LIRE(choix)
+        TANTQUE choix != 0
+
+SI
+    Structure conditionnelle.
+    Syntaxe: SI condition ALORS ... [SINON SI ...] [SINON ...] FINSI
+    Exemples:
+        SI x > 0 ALORS
+            ECRIRE "Positif"
+        FINSI
+
+        SI x > y ALORS
+            ECRIRE "x plus grand"
+        SINON SI x < y ALORS
+            ECRIRE "y plus grand"
+        SINON
+            ECRIRE "Egaux"
+        FINSI
+
+ALORS
+    Partie "alors" d'une condition SI.
+
+SINON
+    Partie "sinon" d'une condition SI.
+
+FINSI
+    Marque la fin d'une structure conditionnelle SI.
+
+DE
+    Utilisé dans la boucle POUR pour spécifier la valeur initiale.
+    Syntaxe: POUR variable DE début A fin
+
+A
+    Utilisé dans la boucle POUR pour spécifier la valeur finale.
+    Syntaxe: POUR variable DE début A fin
+
+--- OPÉRATEURS ---
+
+~
+    Opérateur d'affectation.
+    Syntaxe: variable ~ expression
+    Exemples:
+        x ~ 10
+        x = 10
+        tab[i] = valeur
+
++
+    Addition (opérateur binaire).
+    Exemple: x = a + b
+
+-
+    Soustraction (opérateur binaire).
+    Exemple: x = a - b
+
+*
+    Multiplication (opérateur binaire).
+    Exemple: x = a * b
+
+/
+    Division (opérateur binaire).
+    Exemple: x = a / b
+
+==
+    Égalité (comparaison).
+    Exemple: SI x == y ALORS ...
+
+!=
+    Différence (comparaison).
+    Exemple: SI x != 0 ALORS ...
+
+<
+    Inférieur strict (comparaison).
+    Exemple: SI x < y ALORS ...
+
+>
+    Supérieur strict (comparaison).
+    Exemple: SI x > y ALORS ...
+
+<=
+    Inférieur ou égal (comparaison).
+    Exemple: SI x <= 10 ALORS ...
+
+>=
+    Supérieur ou égal (comparaison).
+    Exemple: SI x >= 0 ALORS ...
+
+( )
+    Parenthèses pour:
+    - Regroupement d'expressions: (a + b) * c
+    - Appels de fonction: f(x, y)
+    - Paramètre de LIRE: LIRE(x)
+
+[ ]
+    Crochets pour les tableaux:
+    - Déclaration: TABLE TYPE nom[taille]
+    - Accès aux éléments: nom[indice]
+    - Affectation: nom[indice] = valeur
+    - Lecture: LIRE(tab[i])
+
+,
+    Séparateur:
+    - Paramètres de fonction: FONCTION f(INT a, FLOAT b)
+    - Arguments d'appel: f(x, y, z)
+
+--- LITTÉRAUX ---
+
+Nombres entiers
+    Séquence de chiffres décimaux.
+    Exemples: 0, 42, 100, 255
+    Type: INT
+
+Nombres réels
+    Séquence de chiffres avec point décimal.
+    Exemples: 3.14, 2.5, 0.1, 123.456
+    Type: FLOAT
+
+Caractères
+    Un caractère unique entre apostrophes.
+    Exemples: 'A', 'x', '0', ' '
+    Type: CHAR
+
+Chaînes de caractères
+    Séquence de caractères entre guillemets doubles.
+    Exemples: "Bonjour", "Résultat: ", "Entrez votre nom:"
+    Usage: exclusivement avec ECRIRE
+
+Identifiants
+    Noms de variables et de fonctions.
+    Règles:
+    - Commence par une lettre (a-z, A-Z)
+    - Peut contenir des lettres et des chiffres
+    - Sensible à la casse
+    Exemples: x, variable1, maFonction, TAILLE_MAX
+
+--- RÈGLES DE TYPAGE ---
+
+1. Compatibilité des types dans les expressions:
+   - INT op INT → INT
+   - FLOAT op FLOAT → FLOAT
+   - CHAR op CHAR → CHAR (limitée)
+   - Pas de conversion implicite entre types
+
+2. Contraintes spécifiques:
+   - Indices de tableau: doivent être de type INT
+   - Variable de boucle POUR: doit être de type INT
+   - Bornes POUR (DE et A): doivent être de type INT
+
+3. Affectation:
+   - Types gauche et droite doivent correspondre
+   - Tableaux: éléments du même type que déclaré
+
+4. Fonctions:
+   - Toutes les fonctions retournent INT
+   - Paramètres typés selon déclaration
+   - Vérification de type stricte des arguments
+
+5. Conditions:
+   - Les comparaisons retournent INT (0=false, non-zero=true)
+   - Comparaison entre types identiques seulement
